@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HuckerHunter</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 text-dark text-decoration-none">
+                <span class="fs-4">HuckerHunter</span>
+            </a>
+        </header>
+    </div>
+
+    <main>
+        <div class="container">
+
+            <div class="row row-cols-2 g-3">
+                <div class="col mx-auto">
+                    {{!-- Пример карточки пользователя --}}
+                    {{#each users}}
+                   <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <a href="/profile?id={{ this.id }}" class="d-block">
+                                <img src="{{ this.avatar }}" class="img-fluid rounded-start">
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ this.username }}</h5>
+                                    <p class="card-text">{{ this.text }}</p>
+                                    <p>
+                                      {{#each this.tags}}
+                                      <a href="?tag={{ this }}">#{{ this }}</a>
+                                      {{/each}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
